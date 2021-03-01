@@ -12,7 +12,8 @@ window.onload = function () {
 	const receivedOffer = document.getElementById("remote-offer");
 	const receivedAnswer = document.getElementById("remote-answer");
 
-	const lc = new RTCPeerConnection();
+	var config = { iceServers: [{ url: "stun:stun.l.google.com:19302" }] };
+	const lc = new RTCPeerConnection(config);
 	var dc = null;
 	createOffer.onclick = function (e) {
 		dc = lc.createDataChannel("channel");
